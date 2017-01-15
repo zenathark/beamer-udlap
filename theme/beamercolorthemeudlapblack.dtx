@@ -12,7 +12,7 @@
 % \iffalse
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamercolorthemeudlapblue}[2017/01/14 Summer Sky UDLAP color theme]
+\ProvidesPackage{beamercolorthemeudlapblack}[2017/01/14 Summer Sky UDLAP color theme]
 %</package>
 % \fi
 % \CheckSum{0}
@@ -83,7 +83,6 @@
 \definecolor{mine-shaft}{HTML}{2E3B40}
 \definecolor{dark-orange}{HTML}{FF8C00}
 \definecolor{azure}{HTML}{F3F4F4}
-\definecolor{pattens-blue}{HTML}{CCD6DC}
 %    \end{macrocode}
 %
 %
@@ -96,19 +95,19 @@
 %    \begin{macrocode}
 \newcommand{\udlap@colors@dark}{
   \setbeamercolor*{normal text}{%
-    fg=mine-shaft,
-    bg=summer-sky
+    fg=azure,
+    bg=mine-shaft
   }
   \setbeamercolor{title text}{%
-    fg=azure,
-    bg=summer-sky
+    fg=summer-sky,
+    bg=mine-shaft
   }
   \setbeamercolor{items}{%
-    fg=harley-davidson-orange,
+    fg=dark-orange,
     bg=mine-shaft
   }
   \setbeamercolor{block thebody}{%
-    fg=mine-shaft,
+    fg=azure,
     bg=viking
   }
   \setbeamercolor{block thetitle}{%
@@ -128,8 +127,7 @@
   }
 }
 \setbeamercolor{alerted text}{%
-  fg=harley-davidson-orange,
-  bg=pattens-blue
+  fg=harley-davidson-orange
 }
 \setbeamercolor{example text}{%
   fg=azure
@@ -150,7 +148,8 @@
 \setbeamercolor{title}{use=title text,parent=title text}
 \setbeamercolor{author}{use=normal text, parent=normal text}
 \setbeamercolor{date}{use=normal text, parent=normal text}
-\setbeamercolor{institute}{fg=harley-davidson-orange}
+\setbeamercolor{institute}{fg=dark-orange}
+\setbeamercolor{frame number}{fg=dark-orange}
 \setbeamercolor{structure}{use=normal text, fg=normal text.fg}
 \setbeamercolor{item}{use=items, parent=items}
 %    \end{macrocode}
@@ -181,7 +180,7 @@
 \setbeamercolor{progress bar}{%
   use=alerted text,
   fg=alerted text.fg,
-  bg=alerted text.bg
+  bg=alerted text.fg!50!white
 }
 \setbeamercolor{title separator}{
   use=progress bar,
@@ -251,7 +250,7 @@
 %
 %    \begin{macrocode}
 \udlap@color@setdefaults
-\ProcessPgfPackageOptions{/udlap/colorblue}
+\ProcessPgfPackageOptions{/udlap/colorblack}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
