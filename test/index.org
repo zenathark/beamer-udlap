@@ -7,7 +7,7 @@
 #+BEAMER_FONT_THEME: udlap
 #+BEAMER_INNER_THEME: udlap
 #+BEAMER_OUTER_THEME: udlap
-#+BEAMER_HEADER: \udlapset{numbering=counter}
+#+BEAMER_HEADER: \udlapset{progressbar=frametitle}
 #+OPTIONS: H:2
 #+Title: Theme Test
 #+author: Dr. Juan Carlos Galan Hernandez
