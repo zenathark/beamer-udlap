@@ -1,0 +1,8 @@
+**/*.tex
+**/test/build/*
+**/test/auxdir/*
+**/*.*~
+**/*.sty
+**/*.log
+**/*.fls
+**/*.fdb_latexmk

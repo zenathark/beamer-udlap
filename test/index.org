@@ -1,0 +1,62 @@
+# -*- eval: (org-beamer-mode); -*-
+#+OPTIONS: H:1
+#+LATEX_CLASS: beamer
+#+COLUMNS: %45ITEM %10BEAMER_env(Env) %10BEAMER_act(Act) %4BEAMER_col(Col) %8BEAMER_opt(Opt)
+#+BEAMER_THEME: udlap
+#+BEAMER_COLOR_THEME: udlapblue
+#+BEAMER_FONT_THEME: udlap
+#+BEAMER_INNER_THEME: udlap
+#+BEAMER_OUTER_THEME: udlap
+#+BEAMER_HEADER: \udlapset{numbering=counter}
+#+OPTIONS: H:2
+#+Title: Theme Test
+#+author: Dr. Juan Carlos Galan Hernandez
+#+institute: Universidad de las Americas Puebla
+#+BEAMER_HEADER: \institute[INST]{Universidad de las Americas Puebla}
+
+* This is a Test
+** Section Test
+This is a normal text
+/cursive/ *highlighted* +alert+
+~verbatim~
+*** Slide test
+[[https:/urlinablock.com]]
+
+** Section 2 Test
+*** Block                                                    :B_column:BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: .4
+    :BEAMER_env: column
+    :END:
+- this
+  - is
+    - a list
+*** A second block                                           :B_column:BMCOL:
+    :PROPERTIES:
+    :BEAMER_env: column
+    :BEAMER_col: .6
+    :END:
+- th
+  1. t
+     1. tehu
+
+** Third slide
+*** block                                                         :B_theorem:
+    :PROPERTIES:
+    :BEAMER_env: theorem
+    :END:
+toehuchi
+
+*** ex                                                            :B_example:
+    :PROPERTIES:
+    :BEAMER_env: example
+    :END:
+test
+
+*** axo                                                             :B_proof:
+    :PROPERTIES:
+    :BEAMER_env: proof
+    :END:
+\begin{formula}
+\frac{3}{5}
+\end{formula}

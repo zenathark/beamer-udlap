@@ -1,0 +1,255 @@
+% \iffalse meta-comment -------------------------------------------------------
+% Copyright 2015 Matthias Vogelgesang and the LaTeX community. A full list of
+% contributors can be found at
+%
+%     https://github.com/matze/mtheme/graphs/contributors
+%
+% and the original template was based on the HSRM theme by Benjamin Weiss.
+%
+% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
+% International License (https://creativecommons.org/licenses/by-sa/4.0/).
+% ------------------------------------------------------------------------- \fi
+% \iffalse
+%<*package>
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamercolorthemeudlapblue}[2017/01/14 Summer Sky UDLAP color theme]
+%</package>
+% \fi
+% \CheckSum{0}
+% \StopEventually{}
+% \iffalse
+%<*package>
+% ------------------------------------------------------------------------- \fi
+%
+% \subsection{\themename color theme}
+%
+%
+%
+% \subsubsection{Package dependencies}
+%    \begin{macrocode}
+\RequirePackage{pgfopts}
+%    \end{macrocode}
+%
+%
+%
+% \subsubsection{Options}
+%
+% \begin{macro}{block}
+%    Optionally adds a light grey background to block environments like
+%    |theorem| and |example|.
+%    \begin{macrocode}
+\pgfkeys{
+  /udlap/color/block/.cd,
+    .is choice,
+    transparent/.code=\udlap@block@transparent,
+    fill/.code=\udlap@block@fill,
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{colors}
+%    Provides the option to have a dark background and light foreground instead
+%    of the reverse.
+%    \begin{macrocode}
+\pgfkeys{
+  /udlap/color/background/.cd,
+    .is choice,
+    dark/.code=\udlap@colors@dark,
+    light/.code=\udlap@colors@light,
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\udlap@color@setdefaults}
+%    Sets default values for color theme options.
+%    \begin{macrocode}
+\newcommand{\udlap@color@setdefaults}{
+  \pgfkeys{/udlap/color/.cd,
+    background=dark,
+    block=transparent,
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%
+% \subsubsection{Base colors}
+%
+%    \begin{macrocode}
+\definecolor{summer-sky}{HTML}{48B2D8}
+\definecolor{viking}{HTML}{48BFD8}
+\definecolor{harley-davidson-orange}{HTML}{D9370D}
+\definecolor{mine-shaft}{HTML}{2E3B40}
+\definecolor{dark-orange}{HTML}{FF8C00}
+\definecolor{azure}{HTML}{F3F4F4}
+%    \end{macrocode}
+%
+%
+%
+% \subsubsection{Base styles}
+%
+% All colors in \themename are derived from the definitions of |title text|,
+% |alerted text|, and |example text|.
+%
+%    \begin{macrocode}
+\newcommand{\udlap@colors@dark}{
+  \setbeamercolor*{normal text}{%
+    fg=azure,
+    bg=mine-shaft
+  }
+  \setbeamercolor{title text}{%
+    fg=summer-sky,
+    bg=mine-shaft
+  }
+  \setbeamercolor{items}{%
+    fg=dark-orange,
+    bg=mine-shaft
+  \usebeamercolor[fg]{normal text}
+}
+\newcommand{\udlap@colors@light}{
+  \setbeamercolor*{normal text}{%
+    fg=mlightgray,
+    bg=mdarkestgray
+  }
+  \setbeamercolor*{titletext}{%
+    fg=mlightgreen,
+    bg=mdarkestgray
+  }
+}
+\setbeamercolor{alerted text}{%
+  fg=harley-davidson-orange
+}
+\setbeamercolor{example text}{%
+  fg=azure
+}
+%    \end{macrocode}
+%
+%
+%
+% \subsubsection{Derived colors}
+%
+% The titles and structural elements (e.g. |itemize| bullets) are set in the
+% same color as |title text|. This would ideally done by setting |normal text|
+% as a parent style, which we do to set |titlelike|, but this doesn't work for
+% |structure| as its foreground is set explicitly in
+% |beamercolorthemedefault.sty|.
+%
+%    \begin{macrocode}
+\setbeamercolor{title}{use=title text,parent=title text}
+\setbeamercolor{author}{use=normal text, parent=normal text}
+\setbeamercolor{date}{use=normal text, parent=normal text}
+\setbeamercolor{institute}{use=normal text, parent=normal text}
+\setbeamercolor{structure}{use=normal text, fg=normal text.fg}
+\setbeamercolor{item}{use=title text, parent=title text}
+%    \end{macrocode}
+%
+% The “primary” palette should be used for the most important navigational
+% elements, and possibly of other elements. \themename uses it for frame
+% titles and slides.
+%
+%    \begin{macrocode}
+\setbeamercolor{palette primary}{%
+  use=normal text,
+  fg=normal text.bg,
+  bg=normal text.fg
+}
+\setbeamercolor{frametitle}{%
+  use=title text,
+  parent=title text
+}
+%    \end{macrocode}
+%
+% The \themename inner or outer themes optionally display progress
+% bars in various locations. Their color is set by |progress bar| but the two
+% different kinds can be customized separately. The horizontal rule on the
+% title page is also set based on the progress bar color and can be customized
+% with |title separator|.
+%
+%    \begin{macrocode}
+\setbeamercolor{progress bar}{%
+  use=alerted text,
+  fg=alerted text.fg,
+  bg=alerted text.fg!50!white
+}
+\setbeamercolor{title separator}{
+  use=progress bar,
+  parent=progress bar
+}
+\setbeamercolor{progress bar in head/foot}{%
+  use=progress bar,
+  parent=progress bar
+}
+\setbeamercolor{progress bar in section page}{
+  use=progress bar,
+  parent=progress bar
+}
+%    \end{macrocode}
+%
+% Block environments such as |theorem| and |example| have no background color
+% by default. The option |block=fill| sets a background color based on the
+% background and foreground of |title text|. The option |block=transparent|
+% reverts the block environments to an empty background, which can be useful
+% if changing colors mid-presentation.
+%
+%    \begin{macrocode}
+\newcommand{\udlap@block@transparent}{
+  \setbeamercolor{block title}{%
+    use=title text,
+    fg=title text.fg,
+    bg=
+  }
+  \setbeamercolor{block body}{
+    bg=
+  }
+}
+\newcommand{\udlap@block@fill}{
+  \setbeamercolor{block title}{%
+    use=title text,
+    fg=title text.fg,
+    bg=title text.bg!80!fg
+  }
+  \setbeamercolor{block body}{
+    use={block title, title text},
+    bg=block title.bg!50!title text.bg
+  }
+}
+\setbeamercolor{block title alerted}{%
+    use={block title, alerted text},
+    bg=block title.bg,
+    fg=alerted text.fg
+}
+\setbeamercolor{block title example}{%
+    use={block title, example text},
+    bg=block title.bg,
+    fg=example text.fg
+}
+\setbeamercolor{block body alerted}{use=block body, parent=block body}
+\setbeamercolor{block body example}{use=block body, parent=block body}
+%    \end{macrocode}
+%
+% Footnotes
+%
+%    \begin{macrocode}
+\setbeamercolor{footnote}{fg=title text.fg!90}
+\setbeamercolor{footnote mark}{fg=.}
+%    \end{macrocode}
+%
+%
+%
+% \subsubsection{Process package options}
+%
+%    \begin{macrocode}
+\udlap@color@setdefaults
+\ProcessPgfPackageOptions{/udlap/color}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\mode<all>
+%    \end{macrocode}
+%
+% \iffalse
+%</package>
+% \fi
+% \Finale
+\endinput
